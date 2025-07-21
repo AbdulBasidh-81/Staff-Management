@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import EmployeeManagement from './pages/EmployeeManagement';
 
 function App() {
+  const loggedInUser = useSelector((state) => state.users.loggedInUser);
+  const isLoggedIn = Boolean(loggedInUser);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />} />
+        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
+        <Route path="/employees" element={isLoggedIn ? <EmployeeManagement /> : <Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
+export default App;

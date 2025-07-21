@@ -1,0 +1,53 @@
+.dashboard-page {
+  display: flex;
+}
+.main-panel {
+  flex: 1;
+  margin-left: 200px;
+}
+.dashboard-content {
+  margin-top: 60px;
+  padding: 20px;
+  background: #f4f6f8;
+  min-height: calc(100vh - 60px); 
+}
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+.card-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 240px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card p {
+  margin: 0;
+  font-weight: bold;
+  color: #555;
+}
+.card h3 {
+  margin-top: 10px;
+  font-size: 2rem;
+  color: #007bff;
+}
+.total-employees {
+  border-left: 6px solid #00b894;
+}
+.total-departments {
+  border-left: 6px solid #fdcb6e;
+}
+.salary {
+  border-left: 6px solid #ff7675;
+}
